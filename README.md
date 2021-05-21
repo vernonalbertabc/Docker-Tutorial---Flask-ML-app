@@ -1,6 +1,7 @@
 # Docker tutorial - Flask ML app
 
 ```  
-Simple example of deployment of a linear regression app to predict salary based on experience. App created with Flask and HTML and Deployment with docker.
-Salary_Data.csv from https://www.kaggle.com/vihansp/salary-data
+1) Simple example of deployment of a linear regression app to predict salary based on experience. 
+2) App created with Flask and HTML and Deployment with docker.
+3) Salary_Data.csv from https://www.kaggle.com/vihansp/salary-data
 ```
