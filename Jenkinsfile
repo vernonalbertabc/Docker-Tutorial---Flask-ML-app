@@ -1,5 +1,5 @@
   
-pipeline {
+node {
     def app
 
     stage('Clone repository') {
@@ -11,7 +11,7 @@ pipeline {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("anandr72/nodeapp")
+        app = docker.build("vernondsouza/prediction")
     }
 
     stage('Test image') {
