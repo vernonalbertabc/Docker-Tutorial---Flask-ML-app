@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "vernondsouza/docker-test"
+    registry = "vernondsouza/prediction"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
@@ -14,7 +14,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry
         }
       }
     }
@@ -27,10 +27,6 @@ pipeline {
         }
       }
     }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
+    
   }
 }
