@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "vernondsouza/prediction"
+    registry = "vernondsouza/test"
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
