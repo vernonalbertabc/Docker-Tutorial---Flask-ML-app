@@ -9,6 +9,7 @@
 	   }
 	   stage('Build Image') {
 	        steps {
+                bat 'docker login'
 	        bat 'docker image build -t prediction .'
 	        }
 	   }
