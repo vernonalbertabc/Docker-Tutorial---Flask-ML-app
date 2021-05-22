@@ -5,5 +5,6 @@
 2) App created with Flask and HTML and Deployment with docker.
 3) Salary_Data.csv from https://www.kaggle.com/vihansp/salary-data
 4) Push and pull docker image and run it on http://localhost:5000/
+5) Implementation of a CI/CD pipeline with Jenkins
  
 ```
