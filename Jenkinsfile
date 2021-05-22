@@ -9,12 +9,12 @@
 	   }
 	   stage('Build Image') {
 	        steps {
-	        echo 'docker image build -t prediction .'
+	        sh 'sudo docker image build -t prediction .'
 	        }
 	   }
 	   stage('Run Image') {
 	        steps {
-	        echo 'docker run -p 5000:5000 prediction'
+	        sh 'sudo docker run -p 5000:5000 prediction'
 	        }
 	   }
 	   stage('Testing'){
