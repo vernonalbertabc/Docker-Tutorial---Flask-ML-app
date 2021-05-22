@@ -22,6 +22,14 @@ pipeline {
           }
         }
       }
+
+ stage('Remove Unused docker image') {
+      steps{
+        cmd "docker rmi $registry:$BUILD_NUMBER"
+      }
+    }
+
+
     }
     
   }
