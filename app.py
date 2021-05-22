@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-app = Flask(__name__
+app = Flask(__name__)
 
 pickle_in = open('regressor.pkl','rb')
 regressor = pickle.load(pickle_in)
