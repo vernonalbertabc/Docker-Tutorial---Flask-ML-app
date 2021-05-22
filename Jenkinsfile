@@ -6,11 +6,7 @@ pipeline {
   }
   agent any
   stages {
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/vernonalbertabc/Docker-Tutorial---Flask-ML-app.git'
-      }
-    }
+    
     stage('Building image') {
       steps{
         script {
