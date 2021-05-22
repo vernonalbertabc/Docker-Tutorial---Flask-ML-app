@@ -17,10 +17,6 @@
 	        bat 'docker run -p 5000:5000 prediction'
 	        }
 	   }
-	   stage('Testing'){
-	        steps {
-	            echo 'Testing..'
-	            }
-	   }
+	   
     }
 }
