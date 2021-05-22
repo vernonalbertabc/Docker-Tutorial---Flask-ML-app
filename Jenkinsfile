@@ -1,24 +1,36 @@
-  pipeline {
-	agent any
-	    stages {
-	        stage('Clone Repository') {
-	        /* Cloning the repository to our workspace */
-	        steps {
-	        checkout scm
-	        }
-	   }
-	   stage('Build Image') {
-	        steps {
-                
-
-	        bat 'docker image build -t prediction .'
-	        }
-	   }
-	   stage('Run in a container') {
-	        steps {
-	        bat 'docker run -p 5000:5000 vernondsouza/prediction'
-                }
-	   }
-	   
+pipeline {
+  environment {
+    registry = "vernondsouza/docker-test"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/vernonalbertabc/Docker-Tutorial---Flask-ML-app.git'
+      }
     }
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
+      }
+    }
+  }
 }
