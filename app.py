@@ -24,7 +24,7 @@ def send(sum=sum):
         prediction = regressor.predict(np.reshape([num1],(-1,1)))
 
         
-    return render_template('app.html', sum='Employee Salary is $: '+ str(round(prediction[0],2)))
+    return render_template('app.html', sum='Employee Salary is $ : '+ str(round(prediction[0],2)))
 
        
 
